@@ -1,3 +1,8 @@
+from prettytable import PrettyTable
+import random
+
+table = PrettyTable()
+
 st3_4_list = [
     {
         'id': '001',
@@ -17,6 +22,20 @@ st3_4_list = [
     }
 ]
 
-print("ID   Name    Gender  Age    Address     Course")
+table.field_names = [
+    "ID",
+    "Name",
+    "Gender",
+    "Age",
+    "Address",
+    "Course"
+]
 for student in st3_4_list:
-    print(f"{student['id']}   {student['name']}    {student['gender']}  {student['age']}    {student['address']}     *")
+    table.add_row([
+        student['id'],
+        student['name'],
+        student['gender'],
+        student['age'],
+        student['address'],
+        '*'])
+print(table)
